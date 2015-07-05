@@ -1,0 +1,22 @@
+{
+    "name" : "braune-digital/redirect-bundle",
+    "description" : "Redirect bundle",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "Braune Digital GmbH",
+        "email" : "mail@braune-digital.com"
+    }],
+    "keywords" : [
+        "redirect bundle"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require" : {
+    },
+    "autoload" : {
+        "psr-4" : {
+            "BrauneDigital\\RedirectBundle\\" : ""
+        }
+    }
+}
