@@ -1,0 +1,9 @@
+services:
+    braunedigital.redirect.redirectlistener:
+        class: BrauneDigital\RedirectBundle\EventListener\RedirectListener
+        arguments: [@doctrine.orm.entity_manager]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+    braunedigital.redirect.manager:
+        class: BrauneDigital\RedirectBundle\Entity\RedirectManager
+        arguments: [@service_container]
