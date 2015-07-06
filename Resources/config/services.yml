@@ -6,4 +6,4 @@ services:
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
     braunedigital.redirect.manager:
         class: BrauneDigital\RedirectBundle\Entity\RedirectManager
-        arguments: [@service_container]
+        arguments: [@doctrine.orm.entity_manager]

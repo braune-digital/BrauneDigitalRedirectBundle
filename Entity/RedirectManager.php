@@ -9,15 +9,15 @@ class RedirectManager
 {
 
 	/**
-	 * @var Container
+	 * @var EntityManager
 	 */
-	protected $container;
+	protected $em;
 
 	/**
-	 * @param Container $container
+	 * @param EntityManager $container
 	 */
-	public function __construct(Container $container) {
-		$this->container = $container;
+	public function __construct(EntityManager $em) {
+		$this->em = $em;
 	}
 
 	/**
@@ -25,18 +25,24 @@ class RedirectManager
 	 * @param string $redirectPath
 	 * @param string $statusCode
 	 */
-	public function create($oldPath, $redirectPath, $statusCode, $manager) {
+	public function create($oldPath, $redirectPath, $statusCode) {
 
-		$em = $this->container->get('doctrine')->getManager();
-		if (!$em->getRepository('BrauneDigitalRedirectBundle:Redirect')->findOneBy(array('oldPath' => $oldPath))) {
+		if (!$this
+			->em
+			->getRepository('BrauneDigitalRedirectBundle:Redirect')
+			->findOneBy(array('oldPath' => $oldPath))
+		) {
 			$redirect = new Redirect();
 			$redirect->setOldPath($oldPath);
 			$redirect->setRedirectPath($redirectPath);
 			$redirect->setStatusCode($statusCode);
-			$em->persist($redirect);
-			$em->flush();
+			$this->em->persist($redirect);
 		}
 
+	}
+
+	public function flush() {
+		$this->em->flush();
 	}
 
 }
