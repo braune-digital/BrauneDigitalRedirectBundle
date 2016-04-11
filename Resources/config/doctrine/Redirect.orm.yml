@@ -1,7 +1,7 @@
-BrauneDigital\RedirectBundle\Entity\Redirect:
+'BrauneDigital\RedirectBundle\Entity\Redirect':
     type: entity
     table: bd_redirect
-    repositoryClass: BrauneDigital\RedirectBundle\Entity\RedirectRepository
+    repositoryClass: 'BrauneDigital\RedirectBundle\Entity\RedirectRepository'
     id:
         id:
             type: integer

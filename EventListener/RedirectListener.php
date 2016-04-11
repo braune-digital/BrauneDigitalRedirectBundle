@@ -27,12 +27,14 @@ class RedirectListener extends ContainerAware
 		if (!$event->isMasterRequest()) {
 			return;
 		}
-		/**$redirect = $this->em->getRepository('BrauneDigitalRedirectBundle:Redirect')->findOneBy(array(
+		
+		$redirect = $this->em->getRepository('BrauneDigitalRedirectBundle:Redirect')->findOneBy(array(
 			'oldPath' => $event->getRequest()->getPathInfo()
 		));
+
 		if ($redirect) {
 			$event->setResponse(new RedirectResponse($redirect->getRedirectPath(), $redirect->getStatusCode()));
-		}*/
+		}
 		return;
 	}
 
