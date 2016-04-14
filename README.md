@@ -19,8 +19,14 @@ public function registerBundles()
         );
 ```
 
-## Usage
+## Usage  
+  
+### Create a redirect  
+  
 ```php
 $manager = $container->get('braune_digital.redirect.manager'); # Get the RedirectManager
-$manager->create($oldPath, $redirectPath, $statusCode, $flush = true); # Create a redirect
+$manager->create($oldPath, $redirectPath, $statusCode); # Create a redirect  
+
 ```
+### Update a redirect
+You may update a redirect by directly accessing the Redirect Repository (BrauneDigitalRedirectBundle:Redirect)
