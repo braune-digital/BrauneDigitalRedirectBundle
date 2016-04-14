@@ -1,14 +1,14 @@
 parameters:
-  braunedigital.redirect.listener.class: 'BrauneDigital\RedirectBundle\EventListener\RedirectListener'
-  braunedigital.redirect.manager.class: 'BrauneDigital\RedirectBundle\Entity\RedirectManager'
-  braunedigital.redirect.listener.priority: 0
+  braune_digital.redirect.listener.class: 'BrauneDigital\RedirectBundle\EventListener\RedirectListener'
+  braune_digital.redirect.manager.class: 'BrauneDigital\RedirectBundle\Entity\RedirectManager'
+  braune_digital.redirect.listener.priority: 0
 
 services:
-    braunedigital.redirect.redirectlistener:
-        class: '%braunedigital.redirect.listener.class%'
+    braune_digital.redirect.redirectlistener:
+        class: '%braune_digital.redirect.listener.class%'
         arguments: ['@doctrine.orm.entity_manager']
         tags:
-            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: '%braunedigital.redirect.listener.priority%' }
-    braunedigital.redirect.manager:
-        class: '%braunedigital.redirect.manager.class%'
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: '%braune_digital.redirect.listener.priority%' }
+    braune_digital.redirect.manager:
+        class: '%braune_digital.redirect.manager.class%'
         arguments: ['@doctrine.orm.entity_manager']

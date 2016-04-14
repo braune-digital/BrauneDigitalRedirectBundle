@@ -25,7 +25,7 @@ class Redirect
 	/**
 	 * @var integer
 	 */
-	protected $statusCode;
+	protected $statusCode = 302;
 
 	/**
 	 * @return int

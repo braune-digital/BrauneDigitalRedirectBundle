@@ -23,9 +23,10 @@ class RedirectManager
 	/**
 	 * @param string $oldPath
 	 * @param string $redirectPath
-	 * @param string $statusCode
+	 * @param integer $statusCode
+	 * @param boolean $flush
 	 */
-	public function create($oldPath, $redirectPath, $statusCode) {
+	public function create($oldPath, $redirectPath, $statusCode = 302, $flush = true) {
 
 		if (!$this
 			->em
@@ -37,12 +38,10 @@ class RedirectManager
 			$redirect->setRedirectPath($redirectPath);
 			$redirect->setStatusCode($statusCode);
 			$this->em->persist($redirect);
+
+			if($flush) {
+				$this->em->flush();
+			}
 		}
-
 	}
-
-	public function flush() {
-		$this->em->flush();
-	}
-
 }
